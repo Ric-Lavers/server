@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ric lavers",
+  "license": "MIT",
+  "scripts": {
+    "start": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
+    "build": "rm -rf build && babel ./src -d build --source-maps --copy-files"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^5.0.13",
+    "mongoose-data-seed": "^1.0.4",
+    "nodemon": "^1.12.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "flow-bin": "^0.73.0"
+  }
+}
