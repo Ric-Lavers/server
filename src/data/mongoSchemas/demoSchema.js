@@ -8,7 +8,7 @@ const demoSchema = new Schema({
 	phoneNumber: String,
   created_on: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   }
 });
 

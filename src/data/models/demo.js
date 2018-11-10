@@ -1,6 +1,9 @@
 import { Demo } from '../dbConnectors'
 
-const createDemo = async ({input} ) => {
+const createDemo = async ( body/* {input}  */) => {
+  console.log(body)
+  return ({ greeting: "hello Mr demo" })
+  
   try {
     let newDemo = new Demo({
       ...input
