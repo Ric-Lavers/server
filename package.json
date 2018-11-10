@@ -16,7 +16,8 @@
     "jwt-simple": "^0.5.1",
     "mongoose": "^5.0.13",
     "mongoose-data-seed": "^1.0.4",
-    "nodemon": "^1.12.1"
+    "nodemon": "^1.12.1",
+    "flow": "^0.2.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
