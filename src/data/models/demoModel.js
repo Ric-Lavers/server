@@ -1,12 +1,10 @@
 import { Demo } from '../dbConnectors'
 
-const createDemo = async ( body/* {input}  */) => {
-  console.log(body)
-  return ({ greeting: "hello Mr demo" })
+const createDemo = async ( body ) => {
   
   try {
     let newDemo = new Demo({
-      ...input
+      ...body
     });
     newDemo.id = newDemo._id
     return await newDemo.save()
