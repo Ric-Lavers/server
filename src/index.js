@@ -1,7 +1,8 @@
 require('dotenv').config();
 import express from 'express';
-import demoRoutes from './data/routes/demoRoutes'
 import bodyParser from 'body-parser'
+import demoRoutes from './data/routes/demoRoutes'
+import personRoutes from './data/routes/personRoutes'
 
 const cors = require('cors')
 const app = express();
@@ -17,6 +18,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/demo', demoRoutes)
+
+app.use('/person', personRoutes)
 
 
 app.listen(8080, () => console.log('Running server on port localhost:8080'));
