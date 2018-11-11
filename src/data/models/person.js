@@ -1,8 +1,10 @@
 import { Person } from '../dbConnectors'
 
 const findPerson = async id => {
-  console.log(id)
   return await Person.findById(id)
+}
+const findPeople = async () => {
+  return await Person.find()
 }
 
 const createPerson = async ( input ) => {
@@ -16,4 +18,5 @@ const createPerson = async ( input ) => {
 export {
   createPerson,
   findPerson,
+  findPeople,
 }
