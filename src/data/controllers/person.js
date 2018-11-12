@@ -23,7 +23,7 @@ const getAllPeople = async (req, res) => {
 }
 
 const postPerson = async (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   try {
     const response = await createPerson(req.body)
     res.send(response)

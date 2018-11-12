@@ -3,6 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser'
 import demoRoutes from './data/routes/demoRoutes'
 import personRoutes from './data/routes/personRoutes'
+import messagesRoutes from './data/routes/messagesRoutes'
 
 const cors = require('cors')
 const app = express();
@@ -18,8 +19,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/demo', demoRoutes)
-
 app.use('/person', personRoutes)
+app.use('/message', messagesRoutes)
 
 
 app.listen(8080, () => console.log('Running server on port localhost:8080'));
