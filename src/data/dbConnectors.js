@@ -7,8 +7,11 @@ import {
 	messageSchema,
 } from './mongoSchemas';
 
-var MONGO_URI=process.env.DEVELOPMENT_MONGO_URI
-
+if (process.env.APP_ENV==='development'){
+	var MONGO_URI=process.env.DEVELOPMENT_MONGO_URI
+}else {
+	var MONGO_URI=process.env.PROD_MONGO_URI
+}
 //Mongo connection
 mongoose.Promise = global.Promise;
 mongoose.connect(MONGO_URI, {useNewUrlParser: true });

@@ -5,8 +5,10 @@
   "author": "ric lavers",
   "license": "MIT",
   "scripts": {
-    "start": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
-    "build": "rm -rf build && babel ./src -d build --source-maps --copy-files"
+    "dev": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
+    "build": "rm -rf build && babel ./src -d build --source-maps --copy-files",
+    "deploy": "now --public && now alias",
+    "start": "node ./build/index.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -22,9 +24,16 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
     "flow-bin": "^0.73.0"
+  },
+  "now": {
+    "alias": "rics-server"
+  },
+  "engines": {
+    "node": "9.x.x"
   }
 }
