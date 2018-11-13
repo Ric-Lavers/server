@@ -15,8 +15,19 @@ const createPerson = async ( input ) => {
     return await newPerson.save()
 }
 
+const findBedAndCar = async () => {
+  const bed = await Person.find({
+    bed: true
+  })
+  const car = await Person.find({
+    car: true
+  })
+  return {...bed, ...car}
+}
+
 export {
   createPerson,
   findPerson,
   findPeople,
+  findBedAndCar,
 }

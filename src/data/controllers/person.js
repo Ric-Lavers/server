@@ -1,9 +1,18 @@
-import { createPerson, findPerson, findPeople } from '../models/person'
+import { createPerson, findPerson, findPeople, findBedAndCar} from '../models/person'
 
 const getPerson = async (req, res) => {
   try {
     const { id } = req.query
     const response = await findPerson(id)
+    res.send(response)
+  } catch (error) {
+    console.error(error.message)
+    res.send(error)
+  }
+}
+const getBedAndCar = async (req, res) => {
+  try {
+    const response = await findBedAndCar()
     res.send(response)
   } catch (error) {
     console.error(error.message)
@@ -37,4 +46,5 @@ export default {
   postPerson,
   getPerson,
   getAllPeople,
+  getBedAndCar,
 }
