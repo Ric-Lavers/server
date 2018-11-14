@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import demoRoutes from './data/routes/demoRoutes'
 import personRoutes from './data/routes/personRoutes'
 import messagesRoutes from './data/routes/messagesRoutes'
+import galleryRoutes from './data/routes/galleryRoutes'
 
 const cors = require('cors')
 const app = express();
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 app.use('/demo', demoRoutes)
 app.use('/person', personRoutes)
 app.use('/message', messagesRoutes)
+app.use('/gallery', galleryRoutes)
 
 
 app.listen(8080, () => console.log('Running server on port localhost:8080'));

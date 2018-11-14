@@ -5,6 +5,7 @@ import {
 	demoSchema,
 	personSchema,
 	messageSchema,
+	imageSchema,
 } from './mongoSchemas';
 
 if (process.env.APP_ENV==='development'){
@@ -19,9 +20,11 @@ mongoose.connect(MONGO_URI, {useNewUrlParser: true });
 const Demo = mongoose.model('demo', demoSchema);
 const Person = mongoose.model('person', personSchema);
 const Message = mongoose.model('message', messageSchema);
+const Image = mongoose.model('image', imageSchema);
 
 export {
 	Demo,
 	Person,
 	Message,
+	Image,
 }
