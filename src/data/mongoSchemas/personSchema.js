@@ -3,7 +3,10 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const personSchema = new Schema({
-	name: String,
+	name: {
+    type:String,
+    required: true
+  },
 	email: String,
   phoneNumber: String,
   bed: Boolean,

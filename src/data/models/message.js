@@ -1,7 +1,8 @@
 import { Message } from '../dbConnectors'
 
 const allMessages = async () => {
-  return await Message.find()
+	const messages = await Message.find()
+	return messages.reverse()
 }
 
 const createMessage = async ( input ) => {
@@ -10,6 +11,7 @@ const createMessage = async ( input ) => {
 	});
 	newMessage.id = newMessage._id
 	return await newMessage.save()
+
 }
 
 export {
