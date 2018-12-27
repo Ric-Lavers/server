@@ -5,8 +5,10 @@
   "author": "ric lavers",
   "license": "MIT",
   "scripts": {
-    "start": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
-    "build": "rm -rf build && babel ./src -d build --source-maps --copy-files"
+    "dev": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
+    "build": "rm -rf build && babel ./src -d build --source-maps --copy-files",
+    "deploy": "now --public && now alias",
+    "start": "node ./build/index.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
