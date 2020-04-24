@@ -1,18 +1,14 @@
-require('dotenv').config()
-import mongoose from 'mongoose'
+require("dotenv").config()
+import mongoose from "mongoose"
 
-import {
-	demoSchema,
-} from './mongoSchemas';
+import { demoSchema, wordSchema } from "./mongoSchemas"
 
-var MONGO_URI=process.env.DEVELOPMENT_MONGO_URI
+var MONGO_URI = process.env.DEVELOPMENT_MONGO_URI
 
 //Mongo connection
-mongoose.Promise = global.Promise;
-mongoose.connect(MONGO_URI, {});
+mongoose.Promise = global.Promise
+mongoose.connect(MONGO_URI, {})
 
-const Demo = mongoose.model('demo', demoSchema);
-
-export {
-	Demo,
-}
+const Demo = mongoose.model("demo", demoSchema)
+const Word = mongoose.model("word", wordSchema)
+export { Demo, Word }
