@@ -1,13 +1,11 @@
 import { addWord, allWords } from "../models/words.model"
 
-const postWord = async (req, res) => {
-  console.log("postWord", req.body, req)
+const postWord = async (req, res, next) => {
   try {
     const response = await addWord(req.body)
     res.send(response)
   } catch (error) {
-    console.error(error.message)
-    res.send(error)
+    res.status(400).send(error)
   }
 }
 
@@ -17,7 +15,7 @@ const getWords = async (req, res) => {
     res.send(response)
   } catch (error) {
     console.error(error.message)
-    res.send(error)
+    res.status(400).send(error)
   }
 }
 

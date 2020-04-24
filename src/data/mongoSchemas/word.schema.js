@@ -1,6 +1,7 @@
 import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
+mongoose.set("useCreateIndex", true)
 
 const wordSchema = new Schema({
   word: {

@@ -1,4 +1,4 @@
 import demoSchema from "./demoSchema"
-import wordSchema from "./wordSchema"
+import wordSchema from "./word.schema"
 
 export { demoSchema, wordSchema }
