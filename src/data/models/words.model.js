@@ -5,10 +5,12 @@ const allWords = async () => {
 }
 
 const addWord = async (input) => {
-  console.log("createImage")
+  console.log("create word", input)
+
   let newWord = new Word({
     ...input,
   })
+  console.log("newWord", newWord)
   newWord.id = newWord._id
   return await newWord.save()
 }

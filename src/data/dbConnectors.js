@@ -11,4 +11,5 @@ mongoose.connect(MONGO_URI, {})
 
 const Demo = mongoose.model("demo", demoSchema)
 const Word = mongoose.model("word", wordSchema)
+
 export { Demo, Word }
