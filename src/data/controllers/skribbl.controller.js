@@ -43,14 +43,12 @@ const getGroups = async (req, res) => {
 
 const postWord = async (req, res, next) => {
 
-  let group = await findOrCreateGroup(req.query.groupName)
-  console.log(group);
-
-
   try {
+    let group = await findOrCreateGroup(req.query.groupName)
     const word = await addWord(req.body)
     group.words.push(word)
-    group.save()
+    await group.save()
+
     res.send(group)
   } catch (error) {
     res.status(400).send(error)
