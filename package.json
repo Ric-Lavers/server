@@ -5,7 +5,8 @@
   "author": "ric lavers",
   "license": "MIT",
   "scripts": {
-    "start": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
+    "dev": "APP_ENV=development nodemon ./src/index.js --exec babel-node -e js",
+    "start": "APP_ENV=production nodemon ./src/index.js --exec babel-node -e js",
     "build": "rm -rf build && babel ./src -d build --source-maps --copy-files"
   },
   "dependencies": {

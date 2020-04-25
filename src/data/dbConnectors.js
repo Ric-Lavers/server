@@ -3,7 +3,12 @@ import mongoose from "mongoose"
 
 import { demoSchema, wordSchema } from "./mongoSchemas"
 
-var MONGO_URI = process.env.DEVELOPMENT_MONGO_URI
+var MONGO_URI
+if (process.env.APP_ENV === "development") {
+  MONGO_URI = process.env.DEVELOPMENT_MONGO_URI
+} else {
+  MONGO_URI = process.env.PROD_MONGO_URI_SKRIBBL
+}
 
 //Mongo connection
 mongoose.Promise = global.Promise
