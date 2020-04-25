@@ -1,7 +1,7 @@
 require("dotenv").config()
 import mongoose from "mongoose"
 
-import { demoSchema, wordSchema } from "./mongoSchemas"
+import { demoSchema, wordSchema, groupSchema } from "./mongoSchemas"
 
 var MONGO_URI
 if (process.env.APP_ENV === "development") {
@@ -16,5 +16,6 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true })
 
 const Demo = mongoose.model("demo", demoSchema)
 const Word = mongoose.model("word", wordSchema)
+const Group = mongoose.model("group", groupSchema)
 
-export { Demo, Word }
+export { Demo, Word, Group }

@@ -1,18 +1,49 @@
-import { Word } from "../dbConnectors"
+import {
+  Word,
+  Group
+} from "../dbConnectors";
 
-const allWords = async () => {
-  const words = await Word.find({}).select("word")
+export const findOrCreateGroup = async (name) => {
+  let group = await Group.findOne({
+    name,
+  });
+  if (!group || group.length === 0) {
+    group = await addGroup({
+      name
+    })
+  }
 
-  return words.map(({ word }) => word)
-}
+  return group;
+};
 
-const addWord = async (input) => {
+export const allGroups = async () => {
+  const groups = await Group.find({});
+
+  return groups;
+};
+
+export const addGroup = async (input) => {
+  let newGroup = new Group({
+    ...input,
+  });
+
+  newGroup.id = newGroup._id;
+  return await newGroup.save();
+};
+
+export const allWords = async () => {
+  const words = await Word.find({}).select("word");
+
+  return words.map(({
+    word
+  }) => word);
+};
+
+export const addWord = async (input) => {
   let newWord = new Word({
     ...input,
-  })
+  });
 
-  newWord.id = newWord._id
-  return await newWord.save()
-}
-
-export { allWords, addWord }
+  newWord.id = newWord._id;
+  return await newWord.save();
+};

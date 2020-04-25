@@ -1,4 +1,3 @@
-import demoSchema from "./demoSchema"
-import wordSchema from "./word.schema"
-
-export { demoSchema, wordSchema }
+export * from './demo.schema'
+export * from './group.schema'
+export * from './word.schema'
