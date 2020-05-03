@@ -6,8 +6,10 @@ import {
 export const findOrCreateGroup = async (name) => {
   let group = await Group.findOne({
     name,
-  });
+  }).populate('words');
+
   if (!group || group.length === 0) {
+
     group = await addGroup({
       name
     })
@@ -39,9 +41,26 @@ export const allWords = async () => {
   }) => word);
 };
 
-export const addWord = async (input) => {
-  let newWord = new Word({
-    ...input,
+export const wordsByGroup = async (name) => {
+  const group = await findOrCreateGroup(name)
+
+  return group.words.map(({
+    word
+  }) => word);
+};
+
+export const addWord = async ({
+  word
+}) => {
+
+  let newWord = await Word.findOne({
+    word
+  })
+
+  if (newWord) return newWord
+
+  newWord = new Word({
+    word,
   });
 
   newWord.id = newWord._id;

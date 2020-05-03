@@ -8,10 +8,16 @@ import {
 const Schema = mongoose.Schema
 mongoose.set("useCreateIndex", true)
 
-
 export const groupSchema = new Schema({
-  name: String,
-  words: [wordSchema],
+  name: {
+    type: String,
+    unique: true
+  },
+  words: [{
+    type: mongoose.ObjectId,
+    ref: 'word',
+    index: true,
+  }],
   created_on: {
     type: Date,
     default: Date.now(),
